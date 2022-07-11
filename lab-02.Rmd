@@ -19,25 +19,62 @@ plastic_waste <- read_csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+Trinidad
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)
 ```
+```{r}
+plastic_waste %>%
+  filter(plastic_waste_per_cap > 3.5)
+```
+```{r}
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) + 
+  geom_histogram(binwidth = 0.2) + 
+  facet_grid(~continent)
+```
+
 
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_density()
+
 ```
+
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+```{r}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent)) +
+  geom_density()
+```
+```{r}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent, 
+                     fill = continent)) +
+  geom_density()
+
+```
+```{r}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent, 
+                     fill = continent)) +
+  geom_density(alpha = 0.1)
+
+```
+
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
+
 
 ```{r plastic-waste-violin}
 # insert code here
