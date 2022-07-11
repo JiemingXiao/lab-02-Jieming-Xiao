@@ -168,5 +168,18 @@ ggplot(data = plastic_waste, aes(y = coastal_pop, x = plastic_waste_per_cap)) +
 ### Exercise 8
 
 ``` r
-# insert code here
+plastic_waste %>%
+  mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3) %>%
+  ggplot(aes(x = coastal_pop_prop, y = plastic_waste_per_cap)) + 
+  geom_point() + 
+  geom_smooth(color = "black")
 ```
+
+    ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+
+    ## Warning: Removed 10 rows containing non-finite values (stat_smooth).
+
+    ## Warning: Removed 10 rows containing missing values (geom_point).
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
